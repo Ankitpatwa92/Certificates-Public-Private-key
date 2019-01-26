@@ -8,6 +8,14 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
+/**
+JWT can be create using RSAAlgo and HSAAlgo
+RSA Algo uses asymetric key (Public Key and Private Key)
+HSA Algo users only single Key that is shared by both parties
+
+Token  can be validated by validate method which validate signature of token only
+
+**/
   public class  CreateJWT {
 
 		

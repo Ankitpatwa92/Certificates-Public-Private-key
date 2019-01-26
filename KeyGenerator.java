@@ -10,6 +10,11 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+/**
+This class contains various example of private key and public key generation
+
+**/
+
 public class KeyGenerator {
 
 	static Key pub;
@@ -19,11 +24,13 @@ public class KeyGenerator {
 		
 		generateKeys();
 		saveKeyInBinaryForamt();
-		saveGeneratedKeyInTextForamt();
-		
+		saveGeneratedKeyInTextForamt();		
 	}
 	
 	
+	/**
+	This method will generate private and public key pair using RSA algo (Asymetric keys)
+	**/
 	public static void generateKeys() throws NoSuchAlgorithmException {
 		
 		KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
@@ -34,6 +41,9 @@ public class KeyGenerator {
 
 	}
 	
+        /**
+	This method will save private key in binary format
+	**/
 	public static void saveKeyInBinaryForamt() throws NoSuchAlgorithmException, IOException{
 		
 		String pubFileName="public_key_binary_format";
@@ -54,6 +64,9 @@ public class KeyGenerator {
 
 	}
 	
+        /**
+	    This method will save private key in text format
+	**/
 	public static void saveGeneratedKeyInTextForamt() throws IOException {
 
 		Base64.Encoder encoder = Base64.getEncoder();		

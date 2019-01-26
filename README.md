@@ -104,7 +104,7 @@ If you want to play with JWT and put these concepts into practice, you can use j
 
 JWT.io Debugger
 
-How do JSON Web Tokens work?
+#### How do JSON Web Tokens work?
 In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned. Since tokens are credentials, great care must be taken to prevent security issues. In general, you should not keep tokens longer than required.
 
 Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the Authorization header using the Bearer schema. The content of the header should look like the following:
@@ -116,14 +116,14 @@ If the token is sent in the Authorization header, Cross-Origin Resource Sharing 
 
 The following diagram shows how a JWT is obtained and used to access APIs or resources:
 
-How does a JSON Web Token work
+ How does a JSON Web Token work
 
 The application or client requests authorization to the authorization server. This is performed through one of the different authorization flows. For example, a typical OpenID Connect compliant web application will go through the /oauth/authorize endpoint using the authorization code flow.
 When the authorization is granted, the authorization server returns an access token to the application.
 The application uses the access token to access a protected resource (like an API).
 Do note that with signed tokens, all the information contained within the token is exposed to users or other parties, even though they are unable to change it. This means you should not put secret information within the token.
 
-Why should we use JSON Web Tokens?
+#### Why should we use JSON Web Tokens?
 Let's talk about the benefits of JSON Web Tokens (JWT) when compared to Simple Web Tokens (SWT) and Security Assertion Markup Language Tokens (SAML).
 
 As JSON is less verbose than XML, when it is encoded its size is also smaller, making JWT more compact than SAML. This makes JWT a good choice to be passed in HTML and HTTP environments.

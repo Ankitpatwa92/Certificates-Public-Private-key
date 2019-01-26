@@ -8,11 +8,22 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
-public class  CreateJWT {
+  public class  CreateJWT {
 
+		
+	 public static void main(args[]) {
+	
+		RSAPrivateKey priKey =(RSAPrivateKey) keyPair.getPrivate();
+		RSAPublicKey pubKey = (RSAPublicKey)keyPair.getPublic();		  
+		String token=sign("{'id':'1'}","custom-claim",30,priKey);
+		System.out.println(token);	    
+		Claim payload = unsign(pubKey,token,"custom-claim");
+		System.out.println(payload.asString());
+	}
+	  
+	  
 
-
-   public static String getBase64EncodedKey(RSAPublicKey key) {	
+                public static String getBase64EncodedKey(RSAPublicKey key) {	
 		  String b64PublicKey = java.util.Base64.getEncoder().encodeToString(key.getEncoded());
 		  return b64PublicKey;			
 		}

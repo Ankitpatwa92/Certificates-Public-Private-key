@@ -32,6 +32,12 @@ keytool -import -trustcacerts -keystore "<key store path>" -storepass changeit -
 openssl req -new -x509 -keyout ca-key -out ca-cert -days 365
 
 Output  ca-key (Private key) and ca-cert (Public Key) two file will be generated
+
+or san
+
+openssl req -new -x509 -keyout ca-key -out ca-cert -days 365  -extensions req_ext -config <( cat ssl.conf )
+
+
 ```
 
 #### Get certifcate file from keystore

@@ -49,6 +49,8 @@ openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days
 ```
 keytool -keystore keystore.jks -alias localhost -import -file cert-signed
 ```
+#### Import CA certificate in keystore
+keytool -keystore server.truststore.jks -alias CARoot -import -file ca-cert
 
 
 ### Useful Link

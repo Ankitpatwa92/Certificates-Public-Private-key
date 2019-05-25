@@ -50,8 +50,8 @@ keytool -keystore keystore.jks -alias localhost -certreq -file cert-file -ext SA
 
 #### Signe Certificate with CA
 ```
-openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days {validity} 
--CAcreateserial -passin pass:{ca-password}
+openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365
+-CAcreateserial -passin pass:{ca-password} -extfile ssl.conf -extensions req_ext
 ```
 
 #### Import signed certificate in keystore

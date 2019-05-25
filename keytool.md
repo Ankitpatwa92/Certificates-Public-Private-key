@@ -40,9 +40,9 @@ openssl req -new -x509 -keyout ca-key -out ca-cert -days 365  -extensions req_ex
 
 ```
 
-#### Get certifcate file from keystore
+#### Get certifcate request file from keystore
 ```
-keytool -keystore keystore.jks -alias localhost -certreq -file cert-file
+keytool -keystore keystore.jks -alias localhost -certreq -file cert-file -ext SAN=dns:localhost,ip:127.0.0.1
 ```
 
 #### Signe Certificate with CA

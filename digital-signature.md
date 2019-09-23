@@ -8,3 +8,7 @@ Signing Algorithms: To create a digital signature, signing algorithms like email
 Signature Verification Algorithms : Verifier receives Digital Signature along with the data. It then uses Verification algorithm to process on the digital signature and the public key (verification key) and generates some value. It also applies the same hash function on the received data and generates a hash value. Then the hash value and the output of the verification algorithm are compared. If they both are equal, then the digital signature is valid else it is invalid.
 
 
+
+
+https://www.geeksforgeeks.org/digital-signatures-certificates/
+

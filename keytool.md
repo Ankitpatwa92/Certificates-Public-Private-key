@@ -67,3 +67,24 @@ keytool -keystore server.truststore.jks -alias CARoot -import -file ca-cert
 ```
 https://docs.confluent.io/2.0.1/kafka/ssl.html
 ```
+
+
+```
+#Generate keystore file
+keytool -genkey -keyalg RSA -alias sdu-cert -keystore keystore.jks -storepass x123 -validity 365 -keysize 2048
+
+#Generate CA certs
+openssl req -new -x509 -keyout ca-key -out ca-cert -days 365
+
+#Genrate Certificate Request file
+keytool -keystore keystore.jks -alias sdu-cert -certreq -file cert-file
+
+#Sign Certificate
+openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365 -CAcreateserial -passin pass:x123
+
+#import ca cert in keystore
+keytool -keystore keystore.jks  -alias CARoot -import -file ca-cert
+
+#import ca cert in keystore
+keytool -keystore keystore.jks  -alias sdu-cert -import -file cert-signed
+```
